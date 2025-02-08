@@ -1,11 +1,12 @@
 #background = 1c2021
 
 # Font configuration
-font-size = 15
+font-family = "Berkly Mono Regular"
+font-size = 16
 
 # Theme and colors
 theme = "catppuccin-mocha"
-background = 000000
+# background = 000000
 window-padding-x = 10
 window-padding-y = 10
 
