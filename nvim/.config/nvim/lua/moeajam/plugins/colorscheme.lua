@@ -1,4 +1,13 @@
 return {
+	{
+		"catppuccin/nvim",
+		lazy = false,
+		name = "catppuccin",
+		priority = 1000,
+		config = function()
+			vim.cmd.colorscheme("catppuccin-mocha")
+		end,
+	},
 	-- rose-pine configuration
 	{
 		"rose-pine/neovim",
@@ -20,7 +29,7 @@ return {
 				},
 			})
 			vim.opt.fillchars = { eob = " " }
-			vim.cmd("colorscheme rose-pine")
+			-- vim.cmd("colorscheme rose-pine")
 		end,
 	},
 	{
