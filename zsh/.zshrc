@@ -30,7 +30,7 @@ source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # ---- Zoxide (better cd) ----
 eval "$(zoxide init zsh)"
 
-alias cd="z"
+# alias cd="z"
 export PATH=~/bin:$PATH
 export PATH=$PATH:$HOME/go/bin
 # export PATH=$PATH:$HOME/go/bin
@@ -42,6 +42,9 @@ alias oo='cd $HOME/Documents/Personal'
 alias or='vim $HOME/Documents/Personal/1_Inbox/*.md'
 export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
 export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
+
+# Better ls
+alias ls="ls --color"
 
 # Java
 export PATH="/usr/local/opt/openjdk@21/bin:$PATH"
