@@ -2,20 +2,28 @@
 
 # Font configuration
 font-family = "Berkly Mono Regular"
-font-size = 16
+font-size = 15
 
 # Theme and colors
 theme = "catppuccin-mocha"
-# background = 000000
-window-padding-x = 10
-window-padding-y = 10
+
+# window-padding-x = 10
+# window-padding-y = 10
+window-padding-balance = true
 
 # Cursor
 shell-integration-features = no-cursor
 cursor-style = block
 cursor-style-blink = true
+cursor-invert-fg-bg = true
 mouse-hide-while-typing= true
 
-# Update Options
+# Macos settings
+macos-option-as-alt = true
+
+# System
+confirm-close-surface = false
+copy-on-select = clipboard
+
 auto-update = check
 auto-update-channel = stable
