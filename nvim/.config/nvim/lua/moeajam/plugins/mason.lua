@@ -28,8 +28,6 @@ return {
 			-- list of servers for mason to install
 			ensure_installed = {
 				"html",
-				"cssls",
-				"tailwindcss",
 				"svelte",
 				"lua_ls",
 				"graphql",
@@ -38,6 +36,9 @@ return {
 				"pyright",
 				"gopls",
 				"jdtls",
+				"tailwindcss-language-server",
+				"cssls",
+				"ts_ls",
 			},
 		})
 		mason_tool_installer.setup({
