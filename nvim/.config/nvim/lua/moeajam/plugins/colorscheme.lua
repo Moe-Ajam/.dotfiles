@@ -5,7 +5,7 @@ return {
 		name = "catppuccin",
 		priority = 1000,
 		config = function()
-			vim.cmd.colorscheme("catppuccin-mocha")
+			-- vim.cmd.colorscheme("catppuccin-mocha")
 		end,
 	},
 	-- rose-pine configuration
@@ -51,24 +51,48 @@ return {
 			-- vim.cmd("colorscheme onedark")
 		end,
 	},
+	-- Old before altering them with chatpgt, rollback if needed
 	-- Tokyonight colorscheme configuration
+	-- {
+	-- 	"folke/tokyonight.nvim",
+	-- 	priority = 1000, -- Adjust priority so that it loads in the order you want
+	-- 	config = function()
+	-- 		require("tokyonight").setup({
+	-- 			style = "night", -- Choose between 'storm', 'night', 'moon', or 'day'
+	-- 			-- transparent = false, -- Enable or disable the background transparency
+	-- 			terminal_colors = true, -- Apply the colorscheme to the terminal
+	-- 			styles = {
+	-- 				-- comments = { italic = false },
+	-- 				-- keywords = { italic = false },
+	-- 				-- functions = { bold = false },
+	-- 				-- variables = { bold = false },
+	-- 			},
+	-- 		})
+	-- 		-- Set Tokyonight as the colorscheme
+	-- 		vim.cmd("colorscheme tokyonight")
+	-- 	end,
+	-- },
 	{
 		"folke/tokyonight.nvim",
-		priority = 1002, -- Adjust priority so that it loads in the order you want
-		config = function()
-			require("tokyonight").setup({
-				style = "night", -- Choose between 'storm', 'night', 'moon', or 'day'
-				transparent = false, -- Enable or disable the background transparency
-				terminal_colors = true, -- Apply the colorscheme to the terminal
-				styles = {
-					comments = { italic = false },
-					keywords = { italic = false },
-					functions = { bold = false },
-					variables = { bold = false },
-				},
-			})
-			-- Set Tokyonight as the colorscheme
-			-- vim.cmd("colorscheme tokyonight")
+		priority = 1000, -- Adjust priority so that it loads in the order you want
+		opts = {
+			style = "night",
+			transparent = false,
+			terminal_colors = true,
+			styles = {
+				comments = { italic = true },
+				keywords = { italic = true },
+				functions = {},
+				variables = {},
+				sidebars = "dark", -- Options: 'dark', 'transparent', 'normal'
+				floats = "dark", -- Options: 'dark', 'transparent', 'normal'
+			},
+			-- Add any other settings here
+		},
+		config = function(_, opts)
+			require("tokyonight").setup(opts)
+			-- vim.cmd[[colorscheme tokyonight]]
+			vim.cmd("colorscheme tokyonight")
 		end,
 	},
 }
