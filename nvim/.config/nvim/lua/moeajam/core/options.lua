@@ -1,6 +1,6 @@
 local opt = vim.opt
 
-vim.opt.guicursor = ""
+-- vim.opt.guicursor = ""
 
 -- cursor as a block
 -- opt.guicursor = "n-v-i-c:block"
