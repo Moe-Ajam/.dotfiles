@@ -141,5 +141,21 @@ return {
 				})
 			end,
 		})
+		lspconfig.tailwindcss.setup({
+			root_dir = function(fname)
+				local root_pattern = lspconfig.util.root_pattern("tailwind.config.js", "tailwind.config.ts")
+				return root_pattern(fname)
+			end,
+			filetypes = {
+				"templ",
+				"vue",
+				"html",
+				"astro",
+				"javascript",
+				"typescript",
+				"react",
+				"htmlangular",
+			},
+		})
 	end,
 }

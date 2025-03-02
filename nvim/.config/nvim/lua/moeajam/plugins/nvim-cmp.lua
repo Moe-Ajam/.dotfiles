@@ -82,6 +82,7 @@ return {
 				{ name = "luasnip" }, -- snippets
 				{ name = "buffer" }, -- text within current buffer
 				{ name = "obsidian" },
+				{ name = "tailwindcss" },
 				-- { name = "path" }, -- file system paths
 			}),
 		})
