@@ -36,7 +36,7 @@ return {
 				"pyright",
 				"gopls",
 				"jdtls",
-				"tailwindcss-language-server",
+				-- "tailwindcss-language-server",
 				"cssls",
 				"ts_ls",
 			},

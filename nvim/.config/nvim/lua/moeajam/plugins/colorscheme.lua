@@ -1,5 +1,17 @@
 return {
 	{
+		"ellisonleao/gruvbox.nvim",
+		priority = 1000,
+		config = function()
+			vim.o.termguicolors = true
+			vim.o.background = "dark" -- or "light"
+			-- Optional customizations
+			vim.g.gruvbox_contrast_dark = "medium"
+			vim.g.gruvbox_italic = 1
+			vim.cmd.colorscheme("gruvbox")
+		end,
+	},
+	{
 		"catppuccin/nvim",
 		lazy = false,
 		name = "catppuccin",
@@ -92,7 +104,7 @@ return {
 		config = function(_, opts)
 			require("tokyonight").setup(opts)
 			-- vim.cmd[[colorscheme tokyonight]]
-			vim.cmd("colorscheme tokyonight")
+			-- vim.cmd("colorscheme tokyonight")
 		end,
 	},
 }
