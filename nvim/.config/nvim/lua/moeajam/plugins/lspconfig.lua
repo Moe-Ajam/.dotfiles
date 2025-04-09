@@ -107,6 +107,10 @@ return {
 				header = "",
 				prefix = "",
 			},
+      virtual_text = {
+        prefix = '●', -- You can use '●', '▎', '■', or any character you prefer
+        spacing = 4,  -- Space between the virtual text and the code
+      },
 		})
 	end,
 }
