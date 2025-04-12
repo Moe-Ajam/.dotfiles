@@ -89,7 +89,6 @@ return {
 				["<C-Space>"] = cmp.mapping.complete(),
 			}),
 			sources = cmp.config.sources({
-				{ name = "copilot", group_index = 2 },
 				{ name = "nvim_lsp" },
 				{ name = "luasnip" }, -- For luasnip users.
 			}, {
@@ -108,7 +107,7 @@ return {
 				prefix = "",
 			},
       virtual_text = {
-        prefix = '●', -- You can use '●', '▎', '■', or any character you prefer
+        prefix = '■', -- You can use '●', '▎', '■', or any character you prefer
         spacing = 4,  -- Space between the virtual text and the code
       },
 		})
