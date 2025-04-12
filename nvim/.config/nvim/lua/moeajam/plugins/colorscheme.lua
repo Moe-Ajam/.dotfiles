@@ -67,17 +67,18 @@ return {
 		"folke/tokyonight.nvim",
 		priority = 1000, -- Adjust priority so that it loads in the order you want
 		opts = {
-			style = "storm",
+			style = "night",
 			transparent = false,
 			terminal_colors = true,
 			styles = {
 				comments = { italic = true },
-				keywords = { italic = true },
+				keywords = { italic = true, bold = true },
 				functions = {},
 				variables = {},
 				sidebars = "dark", -- Options: 'dark', 'transparent', 'normal'
 				floats = "dark", -- Options: 'dark', 'transparent', 'normal'
 			},
+			dim_inactive = true, -- dims inactive windows
 			-- Add any other settings here
 		},
 		config = function(_, opts)
