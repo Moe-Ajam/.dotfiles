@@ -2,11 +2,11 @@
 
 # Font configuration
 font-family = "Berkly Mono Regular"
-font-size = 17
+font-size = 16
 
 # Theme and colors
-# theme = "catppuccin-mocha"
-theme = "GruvboxDarkHard"
+theme = "catppuccin-mocha"
+# theme = "GruvboxDarkHard"
 
 # window-padding-x = 10
 # window-padding-y = 10
