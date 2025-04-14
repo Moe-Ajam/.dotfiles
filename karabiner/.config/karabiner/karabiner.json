@@ -1,0 +1,196 @@
+{
+    "description": "Change double press of q to escape",
+    "manipulators": [
+        {
+            "conditions": [
+                {
+                    "name": "q pressed",
+                    "type": "variable_if",
+                    "value": true
+                }
+            ],
+            "from": {
+                "key_code": "q",
+                "modifiers": { "optional": ["any"] }
+            },
+            "to": [
+                {
+                    "set_variable": {
+                        "name": "q pressed",
+                        "value": false
+                    }
+                },
+                { "key_code": "escape" }
+            ],
+            "type": "basic"
+        },
+        {
+            "from": {
+                "key_code": "q",
+                "modifiers": { "optional": ["any"] }
+            },
+            "to": [
+                {
+                    "set_variable": {
+                        "name": "q pressed",
+                        "value": true
+                    }
+                }
+            ],
+            "to_delayed_action": {
+                "to_if_canceled": [
+                    {
+                        "conditions": [
+                            {
+                                "name": "q pressed",
+                                "type": "variable_if",
+                                "value": true
+                            }
+                        ],
+                        "key_code": "q"
+                    },
+                    {
+                        "set_variable": {
+                            "name": "q pressed",
+                            "value": false
+                        }
+                    }
+                ],
+                "to_if_invoked": [
+                    {
+                        "conditions": [
+                            {
+                                "name": "q pressed",
+                                "type": "variable_if",
+                                "value": true
+                            }
+                        ],
+                        "key_code": "q"
+                    },
+                    {
+                        "set_variable": {
+                            "name": "q pressed",
+                            "value": false
+                        }
+                    }
+                ]
+            },
+            "type": "basic"
+        }
+    ],
+    "profiles": [
+        {
+            "complex_modifications": {
+                "rules": [
+                    {
+                        "description": "Hyper (⌘+⌃+⌥+⇧) + B to open Chrome",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "b",
+                                    "modifiers": { "mandatory": ["left_command", "left_control", "left_option", "left_shift"] }
+                                },
+                                "to": [{ "shell_command": "open -a 'Google Chrome'" }],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Hyper (⌘+⌃+⌥+⇧) + T to open Ghostty",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "t",
+                                    "modifiers": { "mandatory": ["left_command", "left_control", "left_option", "left_shift"] }
+                                },
+                                "to": [{ "shell_command": "open -a Ghostty" }],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Change right_command+hjkl to arrow keys",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "h",
+                                    "modifiers": {
+                                        "mandatory": ["right_command"],
+                                        "optional": ["any"]
+                                    }
+                                },
+                                "to": [{ "key_code": "left_arrow" }],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "j",
+                                    "modifiers": {
+                                        "mandatory": ["right_command"],
+                                        "optional": ["any"]
+                                    }
+                                },
+                                "to": [{ "key_code": "down_arrow" }],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "k",
+                                    "modifiers": {
+                                        "mandatory": ["right_command"],
+                                        "optional": ["any"]
+                                    }
+                                },
+                                "to": [{ "key_code": "up_arrow" }],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "l",
+                                    "modifiers": {
+                                        "mandatory": ["right_command"],
+                                        "optional": ["any"]
+                                    }
+                                },
+                                "to": [{ "key_code": "right_arrow" }],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "manipulators": [
+                            {
+                                "description": "Change caps_lock to command+control+option+shift.",
+                                "from": {
+                                    "key_code": "caps_lock",
+                                    "modifiers": { "optional": ["any"] }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "left_shift",
+                                        "modifiers": ["left_command", "left_control", "left_option"]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "devices": [
+                {
+                    "identifiers": {
+                        "is_keyboard": true,
+                        "is_pointing_device": true,
+                        "product_id": 2064,
+                        "vendor_id": 13364
+                    },
+                    "ignore": false
+                }
+            ],
+            "name": "Default profile",
+            "selected": true,
+            "virtual_hid_keyboard": { "keyboard_type_v2": "ansi" }
+        }
+    ]
+}
