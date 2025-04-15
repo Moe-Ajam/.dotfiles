@@ -14,9 +14,9 @@ sudo yabai --load-sa
 # In case you want to add transparent apps
 # apps_transparent="(Neovide|Code|Ghostty)"
 
-apps_stream="()"
-# This keeps apps always below, seems to be working fine when I switch to other apps
-apps_mgoff_below="(Calculator|iStat Menus|Hammerspoon|BetterDisplay|GIMP|Notes|Activity Monitor|App StoreSoftware Update|TestRig|Gemini|Raycast|OBS Studio|Microsoft Edge|Google Chrome|Cisco Packet Tracer|Stickies|kitty|ProLevel|Photo Booth|Hand Mirror|SteerMouse|remote-viewer|Jitsi Meet|DaVinci Resolve)"
+  apps_stream="()"
+  # This keeps apps always below, seems to be working fine when I switch to other apps
+  apps_mgoff_below="(Calculator|iStat Menus|Hammerspoon|BetterDisplay|GIMP|Notes|Activity Monitor|App StoreSoftware Update|TestRig|Gemini|Raycast|OBS Studio|Microsoft Edge|Google Chrome|Cisco Packet Tracer|Stickies|kitty|ProLevel|Photo Booth|Hand Mirror|SteerMouse|remote-viewer|Jitsi Meet|DaVinci Resolve)"
 
 # Apps that I want to always show, even when I have a transparent app focused
 # apps_transp_ignore="(kitty)"
