@@ -14,24 +14,20 @@ sudo yabai --load-sa
 # In case you want to add transparent apps
 # apps_transparent="(Neovide|Code|Ghostty)"
 
-apps_stream="()"
-# This keeps apps always below, seems to be working fine when I switch to other apps
-apps_mgoff_below="(Calculator|iStat Menus|Hammerspoon|BetterDisplay|GIMP|Notes|Activity Monitor|App StoreSoftware Update|TestRig|Gemini|Raycast|OBS Studio|Microsoft Edge|Google Chrome|Cisco Packet Tracer|Stickies|kitty|ProLevel|Photo Booth|Hand Mirror|SteerMouse|remote-viewer|Jitsi Meet|DaVinci Resolve)"
+excluded_apps=(
+  "System Settings"
+  "Calculator"
+  "Finder"
+  "Preview"
+  "Notes"
+  "App StoreSoftware Update"
+)
 
-# Apps that I want to always show, even when I have a transparent app focused
-# apps_transp_ignore="(kitty)"
-# apps_scratchpad="(Udemy|WezTerm)"
-# apps_transp_ignore="(kitty|CleanShot X)"
-
-# Apps excluded from window management, so you can resize them and move them around
-# This is basically the ignore list
-
-# I had to move them away from normal, because all these apps would stay on top
-# of other apps
-# apps_mgoff_normal="()"
-
-# This keeps apps always on the top
-apps_mgoff_above="()"
+#  Add the excluded apps to be excluded from the stack
+for app in "${excluded_apps[@]}"; do
+  yabai -m rule --add app="^${app}$" manage=off
+  echo "Added rule to exclude: $app"
+done
 
 #########################################################
 
@@ -46,28 +42,9 @@ osascript -e 'tell application id "tracesOf.Uebersicht" to refresh'
 ###############################################################################
 
 yabai -m rule --add app="^${apps_mgoff_normal}$" manage=off
-yabai -m rule --add app="^${apps_mgoff_below}$" manage=off sub-layer=below
-yabai -m rule --add app="^${apps_mgoff_above}$" manage=off sub-layer=above
 
 # In case you want to debug and see the contents of a variable
 # echo "apps_mgoff_below: ^${apps_mgoff_normal}$" > /tmp/yabai_debug.log
-
-# yabai -m rule --add app="kitty" manage=on position=200:50 size=10:50
-# yabai -m rule --add app="^kitty$" manage=off position=100:100 size=80:60
-#
-#
-# ###############################################################################
-#                             sub-layer=normal
-###############################################################################
-
-# https://github.com/koekeishiya/yabai/issues/1929
-
-# Set all apps to the "normal" sub-layer, otherwise they all start on the "below"
-# sub-layer. Doing this fixed the issue I had with floating windows with OBS,
-# davinci resolve and other apps where their floating windows would show on top
-# of other apps
-
-yabai -m rule --add app=".*" sub-layer=normal
 
 ###############################################################################
 #                                  Misc
@@ -78,7 +55,7 @@ yabai -m rule --add app=".*" sub-layer=normal
 
 # "mouse_follows_focus on" will move the mouse back to the center, but DISABLE it or it will
 # be a nightmare to use iStat Menus
-yabai -m config mouse_follows_focus off
+# yabai -m config mouse_follows_focus off
 
 # I don't understand what this does, I've enabled and disabled it in the past,
 # and still don't get it
