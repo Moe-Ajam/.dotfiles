@@ -14,20 +14,6 @@ sudo yabai --load-sa
 # In case you want to add transparent apps
 # apps_transparent="(Neovide|Code|Ghostty)"
 
-excluded_apps=(
-  "System Settings"
-  "Calculator"
-  "Finder"
-  "Preview"
-  "Notes"
-  "App StoreSoftware Update"
-)
-
-#  Add the excluded apps to be excluded from the stack
-for app in "${excluded_apps[@]}"; do
-  yabai -m rule --add app="^${app}$" manage=off
-  echo "Added rule to exclude: $app"
-done
 
 #########################################################
 
@@ -41,7 +27,19 @@ osascript -e 'tell application id "tracesOf.Uebersicht" to refresh'
 #                              Excluded apps
 ###############################################################################
 
-yabai -m rule --add app="^${apps_mgoff_normal}$" manage=off
+excluded_apps=(
+  "System Settings"
+  "Calculator"
+  "Preview"
+  "Notes"
+  "App StoreSoftware Update"
+)
+
+#  Add the excluded apps to be excluded from the stack
+for app in "${excluded_apps[@]}"; do
+  yabai -m rule --add app="^${app}$" manage=off
+  echo "Added rule to exclude: $app"
+done
 
 # In case you want to debug and see the contents of a variable
 # echo "apps_mgoff_below: ^${apps_mgoff_normal}$" > /tmp/yabai_debug.log
@@ -69,6 +67,7 @@ yabai -m rule --add app="^${apps_mgoff_normal}$" manage=off
 yabai -m config layout stack
 # yabai -m config layout bsp
 # yabai -m config layout float
+#
 
 ###############################################################################
 #                                Defaults
