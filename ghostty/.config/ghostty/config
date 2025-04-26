@@ -2,7 +2,9 @@
 
 # Font configuration
 font-family = "Berkly Mono Regular"
-font-size = 16
+# font-family = "JetBrainsMono Nerd Font Mono Regular"
+
+font-size = 17
 
 # Theme and colors
 # theme = "catppuccin-mocha"
