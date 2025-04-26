@@ -33,6 +33,7 @@ excluded_apps=(
   "Preview"
   "Notes"
   "App StoreSoftware Update"
+  "App Store"
 )
 
 #  Add the excluded apps to be excluded from the stack
