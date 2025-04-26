@@ -1,16 +1,17 @@
 #background = 1c2021
 
 # Font configuration
-font-family = "Berkly Mono Regular"
+# font-family = "Berkly Mono Regular"
 # font-family = "JetBrainsMono Nerd Font Mono Regular"
-
+font-family = "JetBrainsMonoNL Nerd Font"
+# font-family = Hack Nerd Font Mono
 font-size = 17
 
 # Theme and colors
 # theme = "catppuccin-mocha"
 # theme = "GruvboxDarkHard"
 # theme = "Solarized Dark - Patched"
-theme = "tokyonight"
+theme = "tokyonight_night"
 
 # window-padding-x = 10
 # window-padding-y = 10
