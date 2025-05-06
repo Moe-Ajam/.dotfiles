@@ -1,37 +1,44 @@
-#background = 1c2021
+# By default Reload config with shft + cmd + ,
+
+config-file = themes/rosepine
+background = #000000
+# background-opacity = 0.65
+# background-blur-radius = 20
 
 # Font configuration
 # font-family = "Berkly Mono Regular"
-# font-family = "JetBrainsMono Nerd Font Mono Regular"
-font-family = "JetBrainsMonoNL Nerd Font"
 # font-family = Hack Nerd Font Mono
+font-family = JetBrainsMonoNL Nerd Font 
 font-size = 17
 
 # Theme and colors
 # theme = "catppuccin-mocha"
 # theme = "GruvboxDarkHard"
 # theme = "Solarized Dark - Patched"
-theme = "tokyonight_night"
+# theme = "tokyonight_night"
 
-# window-padding-x = 10
-# window-padding-y = 10
-window-padding-balance = true
 
 # Cursor
-shell-integration-features = no-cursor
 cursor-style = block
-cursor-style-blink = true
+cursor-style-blink = false
 cursor-invert-fg-bg = true
-mouse-hide-while-typing= true
 
 
 # System
 confirm-close-surface = false
-# copy-on-select = clipboard
+macos-titlebar-style = hidden
+macos-option-as-alt = true
+mouse-hide-while-typing= true
+
+# Window
+window-padding-x = 10
+window-padding-y = 10
+window-padding-balance = true
+window-decoration = true
+
+# Extras
+shell-integration-features = no-cursor 
+copy-on-select = clipboard
 
 auto-update = check
 auto-update-channel = stable
-
-macos-option-as-alt = left
-keybind = alt+left=unbind
-keybind = alt+right=unbind

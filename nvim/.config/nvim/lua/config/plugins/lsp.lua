@@ -91,12 +91,15 @@ return {
 			end,
 		})
 
+        -- NOTE: This was deprecate, I probably will need to look for a replacement 
+        --
 		-- Change the Diagnostic symbols in the sign column (gutter)
-		local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
-		for type, icon in pairs(signs) do
-			local hl = "DiagnosticSign" .. type
-			vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
-		end
+		-- local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
+		-- for type, icon in pairs(signs) do
+			-- local hl = "DiagnosticSign" .. type
+			-- vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
+            -- vim.diagnostic.config(opts?, namespace?)
+		-- end
 
 		-- Performance-oriented diagnostic configuration
 		vim.diagnostic.config({
