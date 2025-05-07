@@ -202,14 +202,15 @@ return {
         require("luasnip.loaders.from_vscode").lazy_load()
 
         cmp.setup({
-            experimental = {
-                -- HACK: experimenting with ghost text
-                -- look at `toggle_ghost_text()` function below.
-                ghost_text = true,
-            },
+            -- experimental = {
+            --     -- HACK: experimenting with ghost text
+            --     -- look at `toggle_ghost_text()` function below.
+            --     ghost_text = true,
+            -- },
             completion = {
                 completeopt = "menu,menuone,noinsert",
             },
+            -- Used for decorating the cmp window
             window = {
                 documentation = {
                     border = {'╭', '─', '╮', '│', '╯', '─', '╰', '│'},
@@ -306,6 +307,7 @@ return {
             formatting = {
                 format = function(entry, vim_item)
                     -- Add custom lsp_kinds icons
+                    -- remove the comment if you want a custom icon
                     vim_item.kind = string.format('%s %s', lsp_kinds[vim_item.kind] or '', vim_item.kind)
 
 
