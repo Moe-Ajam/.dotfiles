@@ -15,7 +15,7 @@ vim.opt.wrap = false
 
 vim.opt.swapfile = false
 vim.opt.backup = false
--- allows you to undo even if you close the file then reopen 
+-- allows you to undo even if you close the file then reopen
 vim.opt.undofile = true
 
 vim.opt.hlsearch = true
