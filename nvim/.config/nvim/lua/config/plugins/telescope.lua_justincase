@@ -5,39 +5,38 @@ return {
 		"nvim-lua/plenary.nvim",
 		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 		"nvim-tree/nvim-web-devicons",
-		"andrew-george/telescope-themes",
+		"folke/todo-comments.nvim",
 	},
 	config = function()
 		local telescope = require("telescope")
 		local actions = require("telescope.actions")
-		local builtin = require("telescope.builtin")
+		local transform_mod = require("telescope.actions.mt").transform_mod
 
-		telescope.load_extension("fzf")
-		telescope.load_extension("themes")
+		local trouble = require("trouble")
+		local trouble_telescope = require("trouble.sources.telescope")
+
+		-- or create your custom action
+		local custom_actions = transform_mod({
+			open_trouble_qflist = function(prompt_bufnr)
+				trouble.toggle("quickfix")
+			end,
+		})
 
 		telescope.setup({
 			defaults = {
 				path_display = { "smart" },
 				mappings = {
 					i = {
-						["<C-k>"] = actions.move_selection_previous,
-						["<C-j>"] = actions.move_selection_next,
-						["<C-p>"] = actions.move_selection_previous,
-						["<C-n>"] = actions.move_selection_next,
-					},
-				},
-			},
-			extensions = {
-				themes = {
-					enable_previewer = true,
-					enable_live_preview = true,
-					persist = {
-						enabled = true,
-						path = vim.fn.stdpath("config") .. "/lua/colorscheme.lua",
+						["<C-p>"] = actions.move_selection_previous, -- move to prev result
+						["<C-n>"] = actions.move_selection_next, -- move to next result
+						["<C-q>"] = actions.send_selected_to_qflist + custom_actions.open_trouble_qflist,
+						["<C-t>"] = trouble_telescope.open,
 					},
 				},
 			},
 		})
+
+		telescope.load_extension("fzf")
 
 		-- set keymaps
 		local keymap = vim.keymap -- for conciseness
@@ -47,7 +46,5 @@ return {
 		keymap.set("n", "<leader>fw", "<cmd>Telescope live_grep<cr>", { desc = "Find string in cwd" })
 		keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>", { desc = "Find string under cursor in cwd" })
 		keymap.set("n", "<leader>ft", "<cmd>TodoTelescope<cr>", { desc = "Find todos" })
-
-		-- vim.keymap.set("n", "<leader>ths", "<cmd>Telescope themes<CR>", { noremap = true, silent = true, desc = "Theme Switcher" })
-    end,
+	end,
 }

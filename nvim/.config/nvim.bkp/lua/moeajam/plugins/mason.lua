@@ -6,7 +6,7 @@ return {
 	},
 	config = function()
 		-- import mason
-		local mason = require("mason")
+		local mason = require("nvim.config.nvim.lua.config.plugins.lsp.mason")
 
 		-- import mason-lspconfig
 		local mason_lspconfig = require("mason-lspconfig")

@@ -17,7 +17,7 @@ return {
 		{ "<leader>xt", "<cmd>Trouble todo toggle<CR>", desc = "Open todos in trouble" },
 	},
 	virtual_text = {
-		prefix = "●", -- Or another character
+		prefix = "■", -- Or another character, ●
 		spacing = 4,
 		source = "if_many",
 	},
