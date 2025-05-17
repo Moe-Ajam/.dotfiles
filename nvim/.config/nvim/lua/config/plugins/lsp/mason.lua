@@ -46,6 +46,10 @@ return {
 				"emmet_language_server",
 				-- "eslint",
 				"marksman",
+                "jdtls",
+                "jsonls",
+                "yamlls",
+                "bashls",
 			},
 		})
 
