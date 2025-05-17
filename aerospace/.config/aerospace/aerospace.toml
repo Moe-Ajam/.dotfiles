@@ -118,6 +118,7 @@ alt-7 = 'workspace 7'
 alt-8 = 'workspace 8'
 alt-9 = 'workspace 9'
 alt-b = 'workspace B' # for browser
+alt-d = 'workspace D' # for Discord and socializing
 alt-e = 'workspace E' # 
 alt-f = 'workspace F' # for finder
 alt-m = 'workspace M' #
@@ -137,6 +138,7 @@ alt-shift-7 = 'move-node-to-workspace 7'
 alt-shift-8 = 'move-node-to-workspace 8'
 alt-shift-9 = 'move-node-to-workspace 9'
 alt-shift-b = 'move-node-to-workspace B'
+alt-shift-d = 'move-node-to-workspace D'
 alt-shift-e = 'move-node-to-workspace E'
 alt-shift-f = 'move-node-to-workspace F'
 alt-shift-m = 'move-node-to-workspace M'
@@ -200,6 +202,10 @@ run = "move-node-to-workspace B"
 [[on-window-detected]]
 if.app-id = 'com.apple.finder'
 run = "move-node-to-workspace F"
+
+[[on-window-detected]]
+if.app-id = 'com.hnc.Discord'
+run = "move-node-to-workspace D"
 
 [[on-window-detected]]
 if.app-id = 'com.evernote.Evernote'
