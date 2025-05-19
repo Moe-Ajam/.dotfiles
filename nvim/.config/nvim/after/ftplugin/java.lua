@@ -1,4 +1,8 @@
 -- See `:help vim.lsp.start_client` for an overview of the supported `config` options.
+
+local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
+local workspace_dir = '/Users/mahmoudajam/Documents/Workspace/github.com/Moe-Ajam/' .. project_name
+
 local config = {
   -- The command that starts the language server
   -- See: https://github.com/eclipse/eclipse.jdt.ls#running-from-the-command-line
@@ -19,14 +23,14 @@ local config = {
     '--add-opens', 'java.base/java.lang=ALL-UNNAMED',
 
     -- 💀
-    '-jar', '/path/to/jdtls_install_location/plugins/org.eclipse.equinox.launcher_VERSION_NUMBER.jar',
+    '-jar', '/opt/homebrew/Cellar/jdtls/1.47.0/libexec/features/org.eclipse.equinox.executable_3.8.2900.v20250424-1814.jar',
          -- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^                                       ^^^^^^^^^^^^^^
          -- Must point to the                                                     Change this to
          -- eclipse.jdt.ls installation                                           the actual version
 
 
     -- 💀
-    '-configuration', '/path/to/jdtls_install_location/config_SYSTEM',
+    '-configuration', '/opt/homebrew/Cellar/jdtls/1.47.0/libexec/config_mac_arm',
                     -- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^        ^^^^^^
                     -- Must point to the                      Change to one of `linux`, `win` or `mac`
                     -- eclipse.jdt.ls installation            Depending on your system.
@@ -34,7 +38,7 @@ local config = {
 
     -- 💀
     -- See `data directory configuration` section in the README
-    '-data', '/path/to/unique/per/project/workspace/folder'
+    '-data', workspace_dir,
   },
 
   -- 💀
@@ -43,7 +47,7 @@ local config = {
   --
   -- vim.fs.root requires Neovim 0.10.
   -- If you're using an earlier version, use: require('jdtls.setup').find_root({'.git', 'mvnw', 'gradlew'}),
-  root_dir = vim.fs.root(0, {".git", "mvnw", "gradlew"}),
+  root_dir = vim.fs.root(0, {".git", "mvnw", "gradlew", "pom.xml", "build.gradle", ".project"}),
 
   -- Here you can configure eclipse.jdt.ls specific settings
   -- See https://github.com/eclipse/eclipse.jdt.ls/wiki/Running-the-JAVA-LS-server-from-the-command-line#initialize-request
