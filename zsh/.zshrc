@@ -43,5 +43,5 @@ export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
 # Java
 # export PATH="/usr/local/opt/openjdk@21/bin:$PATH"
 # export JAVA_HOME="/Library/Java/JavaVirtualMachines/openjdk.jdk/Contents/Home/"
-export JAVA_HOME=$(/usr/libexec/java_home -v23)
+export JAVA_HOME=$(/usr/libexec/java_home -v21)
 export PATH="$JAVA_HOME/bin:$PATH"
