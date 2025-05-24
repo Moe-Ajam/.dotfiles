@@ -1,5 +1,5 @@
 return {
-{
+	{
 		"mfussenegger/nvim-jdtls",
 		ft = { "java" },
 		dependencies = { "JavaHello/spring-boot.nvim", "mfussenegger/nvim-dap" },
@@ -26,25 +26,25 @@ return {
 		keys = {
 			{
 				mode = { "n" },
-				"<leader>Jr",
+				"<leader>jr",
 				"<cmd>lua require('springboot-nvim').new_boot_run()<CR>",
 				{ noremap = true, silent = true, desc = "Spring Boot Run Project" },
 			},
 			{
 				mode = { "n" },
-				"<leader>Jc",
+				"<leader>jc",
 				"<cmd>lua require('springboot-nvim').generate_class()<CR>",
 				{ noremap = true, silent = true, desc = "Java Create Class" },
 			},
 			{
 				mode = { "n" },
-				"<leader>Ji",
+				"<leader>ji",
 				"<cmd>lua require('springboot-nvim').generate_interface()<CR>",
 				{ noremap = true, silent = true, desc = "Java Create Interface" },
 			},
 			{
 				mode = { "n" },
-				"<leader>Je",
+				"<leader>je",
 				"<cmd>lua require('springboot-nvim').generate_enum()<CR>",
 				{ noremap = true, silent = true, desc = "Java Create Enum" },
 			},
