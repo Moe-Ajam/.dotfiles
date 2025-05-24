@@ -23,7 +23,7 @@ local config = {
     '--add-opens', 'java.base/java.lang=ALL-UNNAMED',
 
     -- 💀
-    '-jar', '/opt/homebrew/Cellar/jdtls/1.47.0/libexec/features/org.eclipse.equinox.executable_3.8.2900.v20250424-1814.jar',
+    '-jar', '/opt/homebrew/Cellar/jdtls/1.47.0/libexec/plugins/org.eclipse.equinox.launcher_1.7.0.v20250424-1814.jar',
          -- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^                                       ^^^^^^^^^^^^^^
          -- Must point to the                                                     Change this to
          -- eclipse.jdt.ls installation                                           the actual version

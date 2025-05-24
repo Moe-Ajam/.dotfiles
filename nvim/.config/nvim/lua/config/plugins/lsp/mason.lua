@@ -95,10 +95,6 @@ return {
 					})
 				end,
 
-                ["jdtls"] = function()
-                    -- Don't setup jdtls here - let nvim-java handle it
-                end,
-
 				-- Custom handler for emmet_ls
 				["emmet_ls"] = function()
 					lspconfig.emmet_ls.setup({

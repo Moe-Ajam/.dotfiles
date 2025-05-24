@@ -62,6 +62,7 @@ return {
         workspace = {
             -- Default where Neovim is open
             path = vim.fn.expand("%:p:h"),
+            -- path = vim.fn.getcwd(),
             -- Spring Initializr generates a zip file
             -- Decompress the file by default
             decompress = true,
