@@ -46,10 +46,10 @@ return {
 				"emmet_language_server",
 				-- "eslint",
 				"marksman",
-                "jdtls",
-                "jsonls",
-                "yamlls",
-                "bashls",
+				"jdtls",
+				"jsonls",
+				"yamlls",
+				"bashls",
 			},
 		})
 
@@ -74,10 +74,30 @@ return {
 
 				-- Custom handler for lua_ls
 				["lua_ls"] = function()
+					-- lspconfig.lua_ls.setup({
+					-- 	capabilities = capabilities,
+					-- 	settings = {
+					-- 		Lua = {
+					-- 			diagnostics = {
+					-- 				globals = { "vim" },
+					-- 			},
+					-- 			completion = {
+					-- 				callSnippet = "Replace",
+					-- 			},
+					-- 			workspace = {
+					-- 				library = {
+					-- 					[vim.fn.expand("$VIMRUNTIME/lua")] = true,
+					-- 					[vim.fn.stdpath("config") .. "/lua"] = true,
+					-- 				},
+					-- 			},
+					-- 		},
+					-- 	},
+					-- })
 					lspconfig.lua_ls.setup({
 						capabilities = capabilities,
 						settings = {
 							Lua = {
+								-- make the language server recognize "vim" global
 								diagnostics = {
 									globals = { "vim" },
 								},
@@ -89,6 +109,10 @@ return {
 										[vim.fn.expand("$VIMRUNTIME/lua")] = true,
 										[vim.fn.stdpath("config") .. "/lua"] = true,
 									},
+								},
+								-- Additional settings to improve Neovim development
+								telemetry = {
+									enable = false,
 								},
 							},
 						},
