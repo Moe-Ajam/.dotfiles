@@ -1,6 +1,7 @@
 return {
-{
+	{
 		"mfussenegger/nvim-jdtls",
+		enabled = true,
 		ft = { "java" },
 		dependencies = { "JavaHello/spring-boot.nvim", "mfussenegger/nvim-dap" },
 	},
@@ -14,57 +15,69 @@ return {
 		},
 	},
 	{
-		"jugarpeupv/springboot-nvim",
-		-- dir = "~/projects/springboot-nvim",
-		-- dev = true,
-		ft = { "java" },
-		dependencies = {
+		"elmcgill/springboot-nvim",
+		depedencies = {
 			"neovim/nvim-lspconfig",
 			"mfussenegger/nvim-jdtls",
-			"rebelot/terminal.nvim",
-		},
-		keys = {
-			{
-				mode = { "n" },
-				"<leader>Jr",
-				"<cmd>lua require('springboot-nvim').new_boot_run()<CR>",
-				{ noremap = true, silent = true, desc = "Spring Boot Run Project" },
-			},
-			{
-				mode = { "n" },
-				"<leader>Jc",
-				"<cmd>lua require('springboot-nvim').generate_class()<CR>",
-				{ noremap = true, silent = true, desc = "Java Create Class" },
-			},
-			{
-				mode = { "n" },
-				"<leader>Ji",
-				"<cmd>lua require('springboot-nvim').generate_interface()<CR>",
-				{ noremap = true, silent = true, desc = "Java Create Interface" },
-			},
-			{
-				mode = { "n" },
-				"<leader>Je",
-				"<cmd>lua require('springboot-nvim').generate_enum()<CR>",
-				{ noremap = true, silent = true, desc = "Java Create Enum" },
-			},
 		},
 		config = function()
 			local springboot_nvim = require("springboot-nvim")
+			vim.keymap.set("n", "<leader>Jr", springboot_nvim.boot_run, { desc = "Spring Boot Run Project" })
+			vim.keymap.set("n", "<leader>Jc", springboot_nvim.generate_class, { desc = "Java Create Class" })
+			vim.keymap.set("n", "<leader>Ji", springboot_nvim.generate_interface, { desc = "Java Create Interface" })
+			vim.keymap.set("n", "<leader>Je", springboot_nvim.generate_enum, { desc = "Java Create Enum" })
 			springboot_nvim.setup({})
 		end,
 	},
+	-- {
+	-- 	"jugarpeupv/springboot-nvim",
+	-- 	-- dir = "~/projects/springboot-nvim",
+	-- 	-- dev = true,
+	-- 	-- was true
+	-- 	enabled = false,
+	-- 	ft = { "java" },
+	-- 	dependencies = {
+	-- 		"neovim/nvim-lspconfig",
+	-- 		"mfussenegger/nvim-jdtls",
+	-- 		"rebelot/terminal.nvim",
+	-- 	},
+	-- 	keys = {
+	-- 		{
+	-- 			mode = { "n" },
+	-- 			"<leader>Jr",
+	-- 			"<cmd>lua require('springboot-nvim').new_boot_run()<CR>",
+	-- 			{ noremap = true, silent = true, desc = "Spring Boot Run Project" },
+	-- 		},
+	-- 		{
+	-- 			mode = { "n" },
+	-- 			"<leader>Jc",
+	-- 			"<cmd>lua require('springboot-nvim').generate_class()<CR>",
+	-- 			{ noremap = true, silent = true, desc = "Java Create Class" },
+	-- 		},
+	-- 		{
+	-- 			mode = { "n" },
+	-- 			"<leader>Ji",
+	-- 			"<cmd>lua require('springboot-nvim').generate_interface()<CR>",
+	-- 			{ noremap = true, silent = true, desc = "Java Create Interface" },
+	-- 		},
+	-- 		{
+	-- 			mode = { "n" },
+	-- 			"<leader>Je",
+	-- 			"<cmd>lua require('springboot-nvim').generate_enum()<CR>",
+	-- 			{ noremap = true, silent = true, desc = "Java Create Enum" },
+	-- 		},
+	-- 	},
+	-- 	config = function()
+	-- 		local springboot_nvim = require("springboot-nvim")
+	-- 		springboot_nvim.setup({})
+	-- 	end,
+	-- },
 	{
 		"JavaHello/java-deps.nvim",
 		ft = { "java" },
 		lazy = true,
-		enabled = function()
-			local is_headless = #vim.api.nvim_list_uis() == 0
-			if is_headless then
-				return false
-			end
-			return true
-		end,
+		-- was true
+		enabled = true,
 		dependencies = {
 			{ "mfussenegger/nvim-jdtls" },
 			{

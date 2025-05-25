@@ -53,6 +53,25 @@ return {
 				opts.desc = "Restart LSP"
 				vim.keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts) -- mapping to restart lsp if necessary
 
+				-- Java specific
+				opts.desc = "Organize imports"
+				vim.keymap.set("n", "<leader>ji", "<Cmd>lua require'jdtls'.organize_imports()<CR>", opts)
+
+				opts.desc = "Test class"
+				vim.keymap.set("n", "<leader>jt", "<Cmd>lua require'jdtls'.organize_imports()<CR>", opts)
+
+				opts.desc = "Test nearest method"
+				vim.keymap.set("n", "<leader>jn", "<Cmd>lua require'jdtls'.test_nearest_method()<CR>", opts)
+
+				opts.desc = "Extract variable"
+				vim.keymap.set("v", "<leader>je", "<Esc><Cmd>lua require('jdtls').extract_variable(true)<CR>", opts)
+
+				opts.desc = "Extract variable"
+				vim.keymap.set("n", "<leader>je", "<Cmd>lua require('jdtls').extract_variable()<CR>", opts)
+
+				opts.desc = "Extract method"
+				vim.keymap.set("v", "<leader>jm", "<Esc><Cmd>lua require('jdtls').extract_method(true)<CR>", opts)
+
 				vim.keymap.set("i", "<C-h>", function()
 					vim.lsp.buf.signature_help()
 				end, opts)
