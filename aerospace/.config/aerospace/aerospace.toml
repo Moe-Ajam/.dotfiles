@@ -242,3 +242,7 @@ run = "move-node-to-workspace 4"
 [[on-window-detected]]
 if.app-id = 'com.postmanlabs.mac'
 run = "move-node-to-workspace 5"
+
+[[on-window-detected]]
+if.app-id = 'com.goodnotesapp.x'
+run = "move-node-to-workspace N"
